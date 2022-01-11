@@ -20,18 +20,14 @@ void insert(int key)
     i=key%tablesize;
     struct node*newnode=(struct node*)malloc(sizeof(struct node));
     newnode->data=key;
-    newnode->next=NULL;
+    
     if(head[i]==NULL)
     {
         head[i]=newnode;
         return;
     }
-    c=head[i];
-    while(c->next!=NULL)
-    {
-        c=c->next;
-    }
-    c->next=newnode;
+     newnode->next=head[i];
+    head[i]=newnode;
     
 }
 void display(void)
